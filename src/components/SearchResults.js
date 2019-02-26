@@ -3,6 +3,10 @@ import React from "react";
 import SearchResult from "./SearchResult";
 
 class SearchResults extends React.Component {
+  onButtonClick(name, info, version) {
+    // Save the selected gem into localstorage here
+  }
+
   renderResults() {
     return this.props.results.map(result => {
       return (
@@ -10,6 +14,7 @@ class SearchResults extends React.Component {
           name={result.name}
           info={result.info}
           version={result.version}
+          onButtonClick={this.onButtonClick}
         />
       );
     });
