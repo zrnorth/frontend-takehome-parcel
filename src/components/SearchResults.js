@@ -3,12 +3,6 @@ import React from "react";
 import SearchResult from "./SearchResult";
 
 class SearchResults extends React.Component {
-  onButtonClick(name, info, version) {
-    const newItem = { [name]: { info, version } };
-    const curr = JSON.parse(localStorage.getItem("savedItems"));
-    localStorage.setItem("savedItems", JSON.stringify({ ...curr, ...newItem }));
-  }
-
   renderResults() {
     if (!this.props.results) {
       return null;
@@ -19,7 +13,9 @@ class SearchResults extends React.Component {
           name={result.name}
           info={result.info}
           version={result.version}
-          onButtonClick={this.onButtonClick}
+          onButtonClick={this.props.onButtonClick}
+          buttonIcon={this.props.buttonIcon}
+          buttonColor={this.props.buttonColor}
           key={result.name}
         />
       );

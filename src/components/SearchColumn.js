@@ -7,8 +7,6 @@ class SearchColumn extends React.Component {
   state = { results: [] };
 
   onSearch = async searchTerm => {
-    console.log(searchTerm);
-    // Create the ajax request and await it to return
     const res = await axios(
       `http://localhost:3000/api/v1/search.json?query=${searchTerm}`
     );
@@ -17,14 +15,18 @@ class SearchColumn extends React.Component {
       return;
     }
     this.setState({ results: res.data });
-    // Update the search results to their new value
   };
 
   render() {
     return (
       <div className="column">
         <SearchBar onSearch={this.onSearch} />
-        <SearchResults results={this.state.results} />
+        <SearchResults
+          results={this.state.results}
+          onButtonClick={this.props.buttonAction}
+          buttonIcon="plus"
+          buttonColor="green"
+        />
       </div>
     );
   }
