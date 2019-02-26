@@ -1,25 +1,22 @@
 import React from "react";
 
-class SearchResults extends React.Component {
-  renderHeader() {
-    if (this.props.results.length > 0) {
-      return <div className="ui center aligned header">Search Results</div>;
-    }
-  }
+import SearchResult from "./SearchResult";
 
+class SearchResults extends React.Component {
   renderResults() {
     return this.props.results.map(result => {
-      return <div className="result">{result.name}</div>;
+      return (
+        <SearchResult
+          name={result.name}
+          info={result.info}
+          version={result.version}
+        />
+      );
     });
   }
 
   render() {
-    return (
-      <div className="searchResults">
-        {this.renderHeader()}
-        <div className="resultsList">{this.renderResults()}</div>
-      </div>
-    );
+    return <div className="ui divided items">{this.renderResults()}</div>;
   }
 }
 
