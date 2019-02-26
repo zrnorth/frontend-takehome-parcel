@@ -1,14 +1,26 @@
 import React from "react";
 
-const SearchResults = props => {
-  const { results } = props;
-
-  let ret = "";
-  for (const result of results) {
-    ret += result;
+class SearchResults extends React.Component {
+  renderHeader() {
+    if (this.props.results.length > 0) {
+      return <div className="ui center aligned header">Search Results</div>;
+    }
   }
-  return ret;
-  // todo: for result in results: render the result
-};
+
+  renderResults() {
+    return this.props.results.map(result => {
+      return <div className="result">{result.name}</div>;
+    });
+  }
+
+  render() {
+    return (
+      <div className="searchResults">
+        {this.renderHeader()}
+        <div className="resultsList">{this.renderResults()}</div>
+      </div>
+    );
+  }
+}
 
 export default SearchResults;

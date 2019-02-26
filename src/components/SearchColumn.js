@@ -24,7 +24,6 @@ class SearchColumn extends React.Component {
     return (
       <div className="column">
         <SearchBar onSearch={this.onSearch} />
-        <div className="ui center aligned header">Search Results</div>
         <SearchResults results={this.state.results} />
       </div>
     );
