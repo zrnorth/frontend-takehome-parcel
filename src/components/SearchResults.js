@@ -13,9 +13,7 @@ class SearchResults extends React.Component {
           name={result.name}
           info={result.info}
           version={result.version}
-          onButtonClick={this.props.onButtonClick}
-          buttonIcon={this.props.buttonIcon}
-          buttonColor={this.props.buttonColor}
+          buttonType={this.props.buttonType}
           key={result.name}
         />
       );

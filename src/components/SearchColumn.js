@@ -23,9 +23,7 @@ class SearchColumn extends React.Component {
         <SearchBar onSearch={this.onSearch} />
         <SearchResults
           results={this.state.results}
-          onButtonClick={this.props.buttonAction}
-          buttonIcon="plus"
-          buttonColor="green"
+          buttonType={this.props.buttonType}
         />
       </div>
     );
