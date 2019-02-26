@@ -1,10 +1,10 @@
 import React from "react";
 import axios from "axios";
 import SearchBar from "./SearchBar";
-import SearchResults from "./SearchResults";
+import List from "./List";
 
 class SearchColumn extends React.Component {
-  state = { results: [] };
+  state = { items: [] };
 
   onSearch = async searchTerm => {
     const res = await axios(
@@ -14,17 +14,14 @@ class SearchColumn extends React.Component {
       console.error("There was an error with the rubygem search");
       return;
     }
-    this.setState({ results: res.data });
+    this.setState({ items: res.data });
   };
 
   render() {
     return (
       <div className="column">
         <SearchBar onSearch={this.onSearch} />
-        <SearchResults
-          results={this.state.results}
-          buttonType={this.props.buttonType}
-        />
+        <List items={this.state.items} buttonType={this.props.buttonType} />
       </div>
     );
   }

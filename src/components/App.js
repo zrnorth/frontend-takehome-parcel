@@ -7,7 +7,7 @@ class App extends React.Component {
   state = { savedItems: [] };
 
   // Since we store the items as { name: { info, version }} to avoid duplicates,
-  // we have to transpose this into { name, info, version } to list the results easily.
+  // we have to transpose this into { name, info, version } to list the items easily.
   // Created this helper function to make it easier when we pass down to components.
   convertItemsMapToArray = itemsMap => {
     let savedItems = [];
