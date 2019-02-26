@@ -9,7 +9,7 @@ const SearchResult = ({ name, info, version, onButtonClick }) => {
           className="ui right floated circular green icon button"
           onClick={() => onButtonClick(name, info, version)}
         >
-          <i class="icon plus" />
+          <i className="icon plus" />
         </button>
         <div className="meta">{version}</div>
         <div className="description">{info}</div>
